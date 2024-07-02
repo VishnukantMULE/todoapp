@@ -30,6 +30,7 @@ class _RegisterViewState extends State<RegisterView> {
   final TextEditingController _reenterpassword = TextEditingController();
   late RegisterController _controller;
   String? selectedGender;
+  bool isValidate=false;
 
   @override
   void initState() {
@@ -162,6 +163,7 @@ class _RegisterViewState extends State<RegisterView> {
             const SizedBox(height: 40),
             TextField(
               decoration: const InputDecoration(
+                errorText: 'Please Enter Valid Email',
                 border: OutlineInputBorder(),
                 labelText: "Email",
                 hintText: 'Enter Email address',

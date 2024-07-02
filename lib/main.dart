@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp/screens/auth/login/login_view.dart';
 import 'package:todoapp/screens/auth/register/register_view.dart';
+import 'package:todoapp/screens/weather/view/search_weather.dart';
 
 void main() {
   runApp(const TodoAPP());
@@ -17,7 +18,8 @@ class _TodoAPPState extends State<TodoAPP> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LoginView(),
+      home: SearchWeather(),
+      // home: LoginView(),
       // routes: {
       //   '/':(context)=>RegisterView()
       // },

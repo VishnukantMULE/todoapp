@@ -7,6 +7,9 @@ import 'package:todoapp/screens/auth/register/register_model.dart';
 class RegisterController {
   RegisterModel model;
 
+  bool isValidEmail=false;
+
+
 
   RegisterController(this.model);
 
@@ -37,6 +40,11 @@ class RegisterController {
   void updateImage(File imageFile) {
     model.image = imageFile;
   }
+
+
+
+
+
 
 
 
