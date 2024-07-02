@@ -1,18 +1,23 @@
-class RegisterModel{
+import 'dart:io';
+
+class RegisterModel {
   String firstname;
   String lastname;
   String email;
-  int phonenumber;
   String password;
   String reenterpassword;
   String gender;
-  RegisterModel(
-      this.firstname,
-      this.lastname,
-      this.email,
-      this.phonenumber,
-      this.password,
-      this.reenterpassword,
-      this.gender
-      );
+  File? image;
+  DateTime? dob;
+
+  RegisterModel({
+    required this.firstname,
+    required this.lastname,
+    required this.email,
+    required this.password,
+    required this.reenterpassword,
+    required this.gender,
+    this.dob,
+    this.image,
+  });
 }

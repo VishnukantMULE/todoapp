@@ -1,18 +1,18 @@
 import 'package:todoapp/screens/auth/login/login_model.dart';
 
-class LoginController{
+class LoginController {
   LoginModel model;
+
   LoginController(this.model);
-  bool validateuser()
-  {
+  bool validateuser() {
     return model.isValid();
   }
-  void updateuserId(String userid)
-  {
-    model.userid=userid;
+
+  void updateuserId(String userid) {
+    model.userid = userid;
   }
-  void updatePassword(String password)
-  {
-    model.password=password;
+
+  void updatePassword(String password) {
+    model.password = password;
   }
 }

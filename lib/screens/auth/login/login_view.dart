@@ -13,7 +13,13 @@ class LoginView extends StatefulWidget {
 class _LoginViewState extends State<LoginView> {
   final TextEditingController _useridcontroller = TextEditingController();
   final TextEditingController _passwordcontroller = TextEditingController();
-  late LoginController _controller;
+  late final LoginController _controller;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    LoginController _controller;
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
