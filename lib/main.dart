@@ -1,28 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:todoapp/screens/auth/login/login_view.dart';
-import 'package:todoapp/screens/auth/register/register_view.dart';
-import 'package:todoapp/screens/weather/view/search_weather.dart';
 
 void main() {
-  runApp(const TodoAPP());
+  runApp(const MyApp());
 }
 
-class TodoAPP extends StatefulWidget {
-  const TodoAPP({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-  @override
-  State<TodoAPP> createState() => _TodoAPPState();
-}
-
-class _TodoAPPState extends State<TodoAPP> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: SearchWeather(),
-      // home: LoginView(),
-      // routes: {
-      //   '/':(context)=>RegisterView()
-      // },
-    );
+    return const Placeholder();
   }
 }
+
