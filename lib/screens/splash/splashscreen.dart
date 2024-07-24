@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:todoapp/screens/app.dart';
 import 'package:todoapp/screens/home/homeview.dart';
 
 class Splashscreen extends StatelessWidget {
@@ -8,7 +9,8 @@ class Splashscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(Duration(seconds: 3),(){
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>Homeview()));
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>App()));
+      // Navigator.push(context, MaterialPageRoute(builder: (context)=>Homeview()));
     });
     return Scaffold(
       backgroundColor: Colors.white,
