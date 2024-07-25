@@ -1,6 +1,10 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:todoapp/screens/task/add/add_task_controller.dart';
+import 'package:todoapp/screens/task/todo/todo_view.dart';
 import 'package:todoapp/theme/appcolors.dart';
+import 'package:todoapp/utils/date_formatter_util.dart';
 import 'package:todoapp/widgets/app_button.dart';
 import 'package:todoapp/widgets/app_date_button.dart';
 import 'package:todoapp/widgets/app_input_textfield.dart';
@@ -15,21 +19,7 @@ class AddTaskView extends StatefulWidget {
 }
 
 class _AddTaskViewState extends State<AddTaskView> {
-  DateTime selectedDate=DateTime.now();
-
-  _selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: selectedDate, // Refer step 1
-      firstDate: DateTime(2024),
-      lastDate: DateTime(2025),
-    );
-    if (picked != null && picked != selectedDate) {
-      setState(() {
-        selectedDate = picked;
-      });
-    }
-  }
+  final AddTaskController controller =Get.put(AddTaskController());
 
   @override
   Widget build(BuildContext context) {
@@ -63,63 +53,75 @@ class _AddTaskViewState extends State<AddTaskView> {
             padding: const EdgeInsets.all(8.0),
             child: ListView(
               children:  [
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Row(
                   children: [
                     Column(
                       children: [
-                        TitleText(text: 'Start'),
-                        AppDateButton(isCurrentDate: true, text: selectedDate.toString(), buttonclick: () { _selectDate(context); },)
+                        const TitleText(text: 'Start'),
+                        Obx((){
+                          return  AppDateButton(isCurrentDate: controller.taskModel.isStartDateSelected.value, text: DateFormatterUtil().DateFormateyMMMd(controller.taskModel.startDate.value), buttonclick: () {controller.selectStartDate(context); },);
+                        })
                       ],
                     ),
                     Column(
                       children: [
-                        TitleText(text: 'End'),
-                        AppDateButton(isCurrentDate: false, text: 'Feb-21-2024', buttonclick: () { _selectDate(context); },)
+                        const TitleText(text: 'End'),
+                        AppDateButton(isCurrentDate: false, text: DateFormatterUtil().DateFormateyMMMd(controller.taskModel.endDate.value), buttonclick: () { controller.selectEndDate(context); },)
                       ],
                     )
 
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
 
-                TitleText(
+                const TitleText(
                   text: "Title",
                 ),
-                AppInputTextField(
+                 AppInputTextField(
                   hinttext: "Enter Task title",
-                  maxline: 1,
+                  maxline: 1, inputController: controller.titlecontroller,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
-                TitleText(text: "Category"),
-                SizedBox(
+                const TitleText(text: "Category"),
+                const SizedBox(
                   height: 10,
                 ),
-                Row(
+                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SelectButton(text: 'Priority Task', isSelect: false),
-                    SelectButton(text: 'Daily Task', isSelect: true)
+                    Obx((){
+                      return SelectButton(text: 'Priority Task', isSelect: controller.taskModel.isPriotyTask.value, buttonClick: controller.onoffPriorityTask,);
+                    })
+                    ,
+                    Obx((){
+                      return SelectButton(text: 'Daily Task', isSelect: controller.taskModel.isDailyTask.value, buttonClick: controller.onoffDailyTask,);
+                    })
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
-                TitleText(text: "Description"),
-                AppInputTextField(
+                const TitleText(text: "Description"),
+                 AppInputTextField(
                   hinttext: "Enter Task Description ...",
-                  maxline: 5,
+                  maxline: 5, inputController: controller.desctiptionController,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
-                AppButton(text: "Create Task")
+                Obx((){
+                  List<String> todolist=controller.taskModel.todoList.toList();
+                  return  controller.taskModel.isPriotyTask.value? TodoView(subTaskList: controller.taskModel.todoList, addsubTask: controller.addSubTask, subtaskController: controller.subTaskController,):const SizedBox();
+                }),
+
+                 AppButton(text: "Create Task", buttonClick: controller.createTask,)
               ],
             ),
           ),

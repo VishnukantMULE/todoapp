@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todoapp/screens/calender/calender_view.dart';
-import 'package:todoapp/screens/home/homeview.dart';
+import 'package:todoapp/screens/home/home_view.dart';
 import 'package:todoapp/screens/user/user_view.dart';
 import 'package:todoapp/theme/appcolors.dart';
 
@@ -15,9 +15,9 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   int _currentIndex=1;
   final List<Widget> _screens=[
-     Homeview(),
-     CalenderView(),
-    UserView()
+     const Homeview(),
+     const CalenderView(),
+     const UserView()
   ];
   @override
   Widget build(BuildContext context) {

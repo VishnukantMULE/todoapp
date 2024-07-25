@@ -3,13 +3,14 @@ import 'package:todoapp/theme/appcolors.dart';
 
 class AppButton extends StatelessWidget {
   final String text;
-  const AppButton({super.key,required this.text});
+  final VoidCallback buttonClick;
+  const AppButton({super.key,required this.text,required this.buttonClick});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-      child: ElevatedButton(onPressed: (){},
+      child: ElevatedButton(onPressed: buttonClick,
           style: ElevatedButton.styleFrom(
             backgroundColor: Appcolors.primary,
             shape: RoundedRectangleBorder(

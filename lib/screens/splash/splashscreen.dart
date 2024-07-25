@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todoapp/screens/app.dart';
-import 'package:todoapp/screens/home/homeview.dart';
+import 'package:todoapp/screens/home/home_view.dart';
 
 class Splashscreen extends StatelessWidget {
   const Splashscreen({super.key});

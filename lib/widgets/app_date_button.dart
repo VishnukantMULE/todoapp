@@ -11,7 +11,10 @@ class AppDateButton extends StatelessWidget {
   final String text;
 
   const AppDateButton(
-      {super.key, required this.isCurrentDate, required this.text,required this.buttonclick});
+      {super.key,
+      required this.isCurrentDate,
+      required this.text,
+      required this.buttonclick});
 
   @override
   Widget build(BuildContext context) {
@@ -25,13 +28,14 @@ class AppDateButton extends StatelessWidget {
     return Padding(
         padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
         child: ElevatedButton(
-
             style: ElevatedButton.styleFrom(
+              shadowColor: Appcolors.primary,
                 backgroundColor: buttonBg,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                fixedSize: Size(MediaQuery.of(context).size.width * 0.40, 55)),
+                fixedSize: Size(MediaQuery.of(context).size.width * 0.42, 55)),
+
             // onPressed: _selectDate(context),
             onPressed: buttonclick,
             child: Row(
@@ -40,7 +44,9 @@ class AppDateButton extends StatelessWidget {
                   Icons.calendar_month,
                   color: iconColor,
                 ),
-                SizedBox(width: 10,),
+                const SizedBox(
+                  width: 10,
+                ),
                 Flexible(child: Text(text))
               ],
             )));
