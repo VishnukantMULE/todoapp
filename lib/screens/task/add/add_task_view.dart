@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todoapp/screens/task/add/add_task_controller.dart';
+import 'package:todoapp/screens/task/todo/todo_controller.dart';
 import 'package:todoapp/screens/task/todo/todo_view.dart';
 import 'package:todoapp/theme/appcolors.dart';
 import 'package:todoapp/utils/date_formatter_util.dart';
@@ -11,16 +12,11 @@ import 'package:todoapp/widgets/app_input_textfield.dart';
 import 'package:todoapp/widgets/select_button.dart';
 import 'package:todoapp/widgets/title_text.dart';
 
-class AddTaskView extends StatefulWidget {
-  const AddTaskView({super.key});
+class AddTaskView extends StatelessWidget {
+   AddTaskView({super.key});
 
-  @override
-  State<AddTaskView> createState() => _AddTaskViewState();
-}
-
-class _AddTaskViewState extends State<AddTaskView> {
   final AddTaskController controller =Get.put(AddTaskController());
-
+  final TodoController todoController=Get.put(TodoController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(

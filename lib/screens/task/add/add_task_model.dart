@@ -14,7 +14,12 @@ class AddTaskModel
   late String subtask;
   RxBool isStartDateSelected=true.obs;
 
+  bool status=false;
+
+
+
 
   List<String> todoList=[];
+  List<bool> statusList=[];
 
 }

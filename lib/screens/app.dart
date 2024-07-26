@@ -13,9 +13,9 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  int _currentIndex=1;
+  int _currentIndex=0;
   final List<Widget> _screens=[
-     const Homeview(),
+      Homeview(),
      const CalenderView(),
      const UserView()
   ];
@@ -29,6 +29,7 @@ class _AppState extends State<App> {
           {
             setState(() {
               _currentIndex=index;
+
             });
           },
           // selectedItemColor: Appcolors.primary,

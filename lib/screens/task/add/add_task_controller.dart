@@ -61,14 +61,24 @@ class AddTaskController extends GetxController
   {
     taskModel.title=titlecontroller.text;
     taskModel.description=desctiptionController.text;
-    print("Task Title : ${taskModel.title} and Description : ${taskModel.description} and Category IsPriorityTask:${taskModel.isPriotyTask.value.toString()} IsDailyTask:${taskModel.isDailyTask.value.toString()} Start date : ${taskModel.startDate.value.toString()} End Date : ${taskModel.endDate.value.toString()}");
-    DbService().createTask(taskModel.startDate.value.toString(), taskModel.endDate.value.toString(), taskModel.title, taskModel.isPriotyTask.value.toString(), taskModel.isDailyTask.value.toString(), taskModel.description);
+
+    if(taskModel.isPriotyTask.value==true)
+      {
+       DbService().createPriorityTask(taskModel.startDate.value.toString(), taskModel.endDate.value.toString(), taskModel.title, taskModel.description, taskModel.todoList.toString(),taskModel.statusList.toString());
+       print("Priority task Added");
+      }
+    if(taskModel.isDailyTask.value==true)
+      {
+        DbService().createDailyTask(taskModel.startDate.value.toString(), taskModel.endDate.value.toString(), taskModel.title, taskModel.description,taskModel.status.toString());
+        print("Daily Task Added");
+      }
   }
 
 
   void addSubTask()
   {
     taskModel.todoList.add(subTaskController.text);
+    subTaskController.text="";
     taskModel.isPriotyTask.value=false;
     taskModel.isPriotyTask.value=true;
 
