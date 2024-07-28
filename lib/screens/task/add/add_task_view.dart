@@ -6,11 +6,12 @@ import 'package:todoapp/screens/task/todo/todo_controller.dart';
 import 'package:todoapp/screens/task/todo/todo_view.dart';
 import 'package:todoapp/theme/appcolors.dart';
 import 'package:todoapp/utils/date_formatter_util.dart';
-import 'package:todoapp/widgets/app_button.dart';
-import 'package:todoapp/widgets/app_date_button.dart';
-import 'package:todoapp/widgets/app_input_textfield.dart';
-import 'package:todoapp/widgets/select_button.dart';
-import 'package:todoapp/widgets/title_text.dart';
+import 'package:todoapp/widgets/buttons/app_backbutton.dart';
+import 'package:todoapp/widgets/buttons/app_button.dart';
+import 'package:todoapp/widgets/buttons/app_date_button.dart';
+import 'package:todoapp/widgets/inputs/app_input_textfield.dart';
+import 'package:todoapp/widgets/buttons/select_button.dart';
+import 'package:todoapp/widgets/text/title_text.dart';
 
 class AddTaskView extends StatelessWidget {
    AddTaskView({super.key});
@@ -23,16 +24,7 @@ class AddTaskView extends StatelessWidget {
       backgroundColor: Appcolors.primary,
       appBar: AppBar(
         backgroundColor: Appcolors.primary,
-        leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            color: Appcolors.primary,
-            style: IconButton.styleFrom(
-                backgroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10))),
-            icon: const Icon(Icons.arrow_back_outlined)),
+        leading: AppBackbutton(),
         title: const Center(
             child: Text(
           "Add Task",

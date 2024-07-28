@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todoapp/screens/task/todo/todo_controller.dart';
 import 'package:todoapp/theme/appcolors.dart';
-import 'package:todoapp/widgets/app_button.dart';
-import 'package:todoapp/widgets/app_input_textfield.dart';
-import 'package:todoapp/widgets/title_text.dart';
+import 'package:todoapp/widgets/buttons/app_button.dart';
+import 'package:todoapp/widgets/inputs/app_input_textfield.dart';
+import 'package:todoapp/widgets/text/title_text.dart';
 
 class TodoView extends StatelessWidget {
 
